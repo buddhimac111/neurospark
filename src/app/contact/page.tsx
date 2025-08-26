@@ -88,7 +88,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Have questions about Neurofuel? Want to learn more about our products? 
-              We'd love to hear from you. Get in touch with our team today.
+              We&apos;d love to hear from you. Get in touch with our team today.
             </p>
           </motion.div>
         </div>
@@ -315,7 +315,7 @@ export default function ContactPage() {
               },
               {
                 question: "What is your return and satisfaction policy?",
-                answer: "We offer a 30-day satisfaction guarantee. If you're not completely satisfied with your Neurofuel experience, contact us for a full refund or exchange."
+                answer: "We offer a 30-day satisfaction guarantee. If you&apos;re not completely satisfied with your Neurofuel experience, contact us for a full refund or exchange."
               },
               {
                 question: "Where do you source your ingredients?",

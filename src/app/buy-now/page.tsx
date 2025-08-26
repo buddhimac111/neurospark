@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Minus, Plus, ShoppingCart, CreditCard, Shield, Check } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, Shield, Check } from 'lucide-react';
 
 export default function BuyNowPage() {
   const [quantity, setQuantity] = useState(1);
@@ -80,7 +80,7 @@ export default function BuyNowPage() {
           
           <p className="text-xl text-gray-300 mb-8">
             Your order has been confirmed! You will receive your Neurofuel Energy Bars soon 
-            and we'll keep you updated via email with tracking information.
+            and we&apos;ll keep you updated via email with tracking information.
           </p>
           
           <motion.button

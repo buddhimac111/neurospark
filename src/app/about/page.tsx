@@ -63,7 +63,7 @@ export default function AboutPage() {
                 wisdom elements with modern nutritional science could create something truly extraordinary.
               </p>
               <p className="text-gray-300 leading-relaxed text-lg">
-                Today, we're proud to offer Neurofuel Energy Bars - a testament to our commitment 
+                Today, we&apos;re proud to offer Neurofuel Energy Bars - a testament to our commitment 
                 to natural, sustainable, and effective cognitive enhancement solutions.
               </p>
             </motion.div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
               {
                 icon: Heart,
                 title: "Customer Care",
-                description: "Your health and satisfaction are our top priorities. We're committed to providing exceptional customer service and support.",
+                description: "Your health and satisfaction are our top priorities. We&apos;re committed to providing exceptional customer service and support.",
                 color: "from-rose-500 to-pink-500"
               },
               {
@@ -207,7 +207,7 @@ export default function AboutPage() {
               Our Impact
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Making a difference in people's lives and communities
+              Making a difference in people&apos;s lives and communities
             </p>
           </motion.div>
 
