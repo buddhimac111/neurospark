@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #ffffff;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: #1f2937;
+  --secondary-foreground: #f3f4f6;
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  
+  /* Custom breakpoints for better responsiveness */
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Extra small screens */
+@media (max-width: 475px) {
+  .xs\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .xs\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .xs\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+  .xs\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .xs\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .xs\:flex-row { flex-direction: row; }
+  .xs\:block { display: block; }
+  .xs\:inline { display: inline; }
+  .xs\:flex-initial { flex: initial; }
+}
+
+/* Large screens optimization */
+@media (min-width: 1536px) {
+  .container { max-width: 1400px; }
+  
+  /* Ensure content doesn't stretch too wide on large screens */
+  .max-w-screen-2xl { max-width: 1400px; }
+  
+  /* Better spacing on large screens */
+  .xl\:gap-20 { gap: 5rem; }
+  .xl\:py-32 { padding-top: 8rem; padding-bottom: 8rem; }
+  .xl\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+}
+
+/* 4K screens optimization */
+@media (min-width: 2560px) {
+  .container { max-width: 1600px; }
+  
+  /* Scale up fonts appropriately for 4K */
+  .text-8xl { font-size: 8rem; line-height: 1; }
+  .text-7xl { font-size: 6rem; line-height: 1; }
+  
+  /* Better button sizes for large screens */
+  .btn-4k { 
+    padding: 1.25rem 3rem; 
+    font-size: 1.5rem; 
+    line-height: 2rem; 
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #8b5cf6, #ec4899);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #7c3aed, #db2777);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Backdrop blur fallback */
+.backdrop-blur-fallback {
+  background: rgba(3, 7, 18, 0.8);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .backdrop-blur-fallback {
+    background: rgba(3, 7, 18, 0.7);
+    backdrop-filter: blur(12px);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
 }
