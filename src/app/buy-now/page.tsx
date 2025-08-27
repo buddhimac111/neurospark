@@ -13,7 +13,7 @@ export default function BuyNowPage() {
   const [email, setEmail] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const pricePerBar = 29.99;
+  const pricePerBar = 200.00;
   const totalPrice = quantity * pricePerBar;
 
   const handleQuantityChange = (change: number) => {
@@ -73,7 +73,7 @@ export default function BuyNowPage() {
               <p className="text-gray-300"><span className="font-medium">Customer:</span> {customerName}</p>
               <p className="text-gray-300"><span className="font-medium">Email:</span> {email}</p>
               <p className="text-gray-300"><span className="font-medium">Quantity:</span> {quantity} Neurofuel Energy Bar{quantity > 1 ? 's' : ''}</p>
-              <p className="text-gray-300"><span className="font-medium">Total:</span> ${totalPrice.toFixed(2)}</p>
+              <p className="text-gray-300"><span className="font-medium">Total:</span> LKR {totalPrice.toFixed(2)}</p>
               <p className="text-gray-300"><span className="font-medium">Payment:</span> {paymentMethods.find(p => p.id === selectedPayment)?.name}</p>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function BuyNowPage() {
             <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-2xl">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-2xl font-bold text-white">Price per bar:</span>
-                <span className="text-3xl font-bold text-purple-400">${pricePerBar}</span>
+                <span className="text-3xl font-bold text-purple-400">LKR {pricePerBar}</span>
               </div>
               
               <div className="flex items-center justify-between">
@@ -188,7 +188,7 @@ export default function BuyNowPage() {
               <div className="mt-6 pt-6 border-t border-gray-600">
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-white">Total:</span>
-                  <span className="text-3xl font-bold text-cyan-400">${totalPrice.toFixed(2)}</span>
+                  <span className="text-3xl font-bold text-cyan-400">LKR {totalPrice.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function BuyNowPage() {
                 ) : (
                   <>
                     <ShoppingCart size={24} />
-                    <span>Complete Purchase - ${totalPrice.toFixed(2)}</span>
+                    <span>Complete Purchase - LKR {totalPrice.toFixed(2)}</span>
                   </>
                 )}
               </motion.button>
