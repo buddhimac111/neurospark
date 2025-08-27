@@ -15,26 +15,36 @@ export default function Home() {
         
         {/* Animated background particles */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
-              animate={{
-                x: [0, Math.random() * 100 - 50],
-                y: [0, Math.random() * 100 - 50],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => {
+            // Create deterministic values based on index to avoid hydration mismatch
+            const xMovement = (i * 17 + 23) % 100 - 50; // Deterministic x movement
+            const yMovement = (i * 13 + 37) % 100 - 50; // Deterministic y movement
+            const duration = (i % 3) + 2; // Duration between 2-4 seconds
+            const delay = (i % 10) * 0.2; // Delay between 0-1.8 seconds
+            const leftPos = (i * 19 + 11) % 100; // Deterministic left position
+            const topPos = (i * 23 + 7) % 100; // Deterministic top position
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
+                animate={{
+                  x: [0, xMovement],
+                  y: [0, yMovement],
+                  opacity: [0, 1, 0],
+                }}
+                transition={{
+                  duration: duration,
+                  repeat: Infinity,
+                  delay: delay,
+                }}
+                style={{
+                  left: `${leftPos}%`,
+                  top: `${topPos}%`,
+                }}
+              />
+            );
+          })}
         </div>
 
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
